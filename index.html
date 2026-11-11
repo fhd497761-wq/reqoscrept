@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAHD & DALO - حل Qureo التلقائي</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+
+    <header class="hero">
+        <div class="logo-container">
+            <div class="logo-glow"></div>
+            <h1 class="title">
+                <span class="title-fahd">FAHD</span>
+                <span class="title-amp">&</span>
+                <span class="title-dalo">DALO</span>
+            </h1>
+            <p class="subtitle">منصة حل Qureo التلقائي</p>
+            <div class="tagline">
+                <span class="tag">🤖 أتمتة كاملة</span>
+                <span class="tag">⚡ حل فوري</span>
+                <span class="tag">📊 متابعة مباشرة</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="card glass" id="login-card">
+            <div class="card-header">
+                <div class="card-icon">🔐</div>
+                <h2>تسجيل الدخول</h2>
+                <p>أدخل بيانات الطالب للبدء</p>
+            </div>
+            <form id="login-form" autocomplete="off">
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <span class="input-icon">👤</span>
+                        <input type="text" id="student-id" placeholder="رقم الطالب" required autocomplete="off">
+                        <div class="input-underline"></div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔑</span>
+                        <input type="password" id="student-password" placeholder="كلمة المرور" required autocomplete="off">
+                        <div class="input-underline"></div>
+                    </div>
+                </div>
+                <button type="submit" class="btn-start" id="start-btn">
+                    <span class="btn-text">🚀 ابدأ الحل التلقائي</span>
+                    <span class="btn-loader hidden"><div class="spinner"></div> جاري التشغيل...</span>
+                </button>
+            </form>
+        </div>
+
+        <div class="card glass hidden" id="progress-card">
+            <div class="card-header">
+                <div class="card-icon">📊</div>
+                <h2>جاري الحل</h2>
+                <p id="progress-step">في انتظار البدء...</p>
+            </div>
+            <div class="progress-section">
+                <div class="progress-info">
+                    <span id="progress-percent">0%</span>
+                    <span id="progress-label">بدء العملية</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar"><div class="progress-glow"></div></div>
+                </div>
+                <div class="progress-steps">
+                    <div class="step-dot" data-step="launch"><span>🚀</span><label>تشغيل</label></div>
+                    <div class="step-connector"></div>
+                    <div class="step-dot" data-step="navigate"><span>🌐</span><label>فتح</label></div>
+                    <div class="step-connector"></div>
+                    <div class="step-dot" data-step="credentials"><span>📝</span><label>بيانات</label></div>
+                    <div class="step-connector"></div>
+                    <div class="step-dot" data-step="login"><span>🔐</span><label>دخول</label></div>
+                    <div class="step-connector"></div>
+                    <div class="step-dot" data-step="logged"><span>✅</span><label>ناجح</label></div>
+                    <div class="step-connector"></div>
+                    <div class="step-dot" data-step="assessments"><span>🔍</span><label>بحث</label></div>
+                    <div class="step-connector"></div>
+                    <div class="step-dot" data-step="solving"><span>📝</span><label>حل</label></div>
+                    <div class="step-connector"></div>
+                    <div class="step-dot" data-step="complete"><span>🎉</span><label>اكتمل</label></div>
+                </div>
+            </div>
+            <div class="log-section">
+                <h3>سجل النشاط</h3>
+                <div class="log-container" id="log-container">
+                    <div class="log-entry log-info"><span class="log-time">--:--:--</span><span class="log-message">في انتظار بدء العملية...</span></div>
+                </div>
+            </div>
+            <div class="stats-row hidden" id="stats-row">
+                <div class="stat"><span class="stat-value" id="stat-current">0</span><span class="stat-label">اختبار حالي</span></div>
+                <div class="stat"><span class="stat-value" id="stat-total">0</span><span class="stat-label">إجمالي الاختبارات</span></div>
+                <div class="stat"><span class="stat-value" id="stat-time">00:00</span><span class="stat-label">الوقت المنقضي</span></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <span>© 2024 FAHD & DALO</span><span>•</span><span>منصة حل Qureo التلقائي</span>
+        </div>
+    </footer>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
